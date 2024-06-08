@@ -1,0 +1,11 @@
+numpy
+matplotlib
+tensorflow
+streamlit
+Pillow
+fastapi
+pydantic
+httpx
+pandas
+scikit-learn
+pickle5
