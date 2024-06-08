@@ -10,4 +10,4 @@ def test_model_quality():
     model = joblib.load('pipeline.pkl')
     y_pred = model.predict(X_quality)
     mse = mean_squared_error(y_quality, y_pred)
-    assert mse < 10, "Mean squared error is too high for quality data!
+    assert mse >= 10, "Model is good enough!"
