@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: 'Jenkins', url: 'https://github.com/MarkShubat/MLOPS_Final'
-		sh 'echo ${{secrets.DVC_AUTH}} > ~/.dvc/config'
+		sh 'echo ${{secrets.DVC_AUTH}} > .dvc/config'
 		sh 'dvc pull'
             }
         }
