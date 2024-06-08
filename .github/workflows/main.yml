@@ -14,7 +14,7 @@ jobs:
     - name: Install DVC
       run: pip install dvc
     - name: Authenticate with DVC remote
-      run: echo ${{secrets.DVC_AUTH}} > ~/.dvc/config
+      run: echo ${{secrets.DVC_AUTH}} > .dvc/config
     - name: Pull data from DVC
       run: dvc pull
     - name: Run tests
