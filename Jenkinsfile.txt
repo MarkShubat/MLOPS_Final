@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'Jenkins', url: 'https://github.com/MarkShubat/MLOPS_Final'
+		sh 'dvc pull'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh "pip3 install -rTask2/Requirements.txt"
+                sh 'python3 data_creation.py'
+                sh 'python3 model_preparation.py'
+                sh 'python3 model_preprocessing.py'
+                sh 'python3 model_testing.py'
+            }
+        }
+	
+	stage('Push Changes') {
+            steps {
+                sh 'dvc push'
+                sh 'git add .'
+                sh 'git commit -m "Update model and data"'
+                sh 'git push'
+            }
+        }
+    }
+}
