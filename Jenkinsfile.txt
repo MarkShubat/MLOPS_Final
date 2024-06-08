@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/MarkShubat/MLOPS'
+                git branch: 'Jenkins', url: 'https://github.com/MarkShubat/MLOPS_Final'
 		sh 'dvc pull'
             }
         }
@@ -12,10 +12,10 @@ pipeline {
         stage('Build') {
             steps {
                 sh "pip3 install -rTask2/Requirements.txt"
-                sh 'python3 Task2/data_creation.py'
-                sh 'python3 Task2/model_preparation.py'
-                sh 'python3 Task2/model_preprocessing.py'
-                sh 'python3 Task2/model_testing.py'
+                sh 'python3 data_creation.py'
+                sh 'python3 model_preparation.py'
+                sh 'python3 model_preprocessing.py'
+                sh 'python3 model_testing.py'
             }
         }
 	
