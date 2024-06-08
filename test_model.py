@@ -7,7 +7,7 @@ def test_model_quality():
     quality_data = pd.read_csv('titanic.csv')
     X_quality = quality_data.drop('Survived', axis=1)
     y_quality = quality_data['Survived']
-    with open('model.pkl', 'rb') as file:
+    with open('pipeline.pkl', 'rb') as file:
     # Загружаем модель из файла
         model = pickle.load(file)
     y_pred = model.predict(X_quality)
